@@ -20,48 +20,25 @@ public class Ventana6 extends javax.swing.JFrame {
         this.setTitle("GUI");
     }
 
-    public String encriptar(String cadena) { // HOLA   
-        char[] alfabeto = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ',',','.'};
-        char[] sustituir = {'Z', 'C', 'Q', 'V', 'A', 'J', 'G', 'Ñ', 'W', 'N', 'F', 'B', 'U', 'M', 'R', 'H', 'I', 'O', 'D', 'Y', 'X', 'T', 'P', 'E', 'S', 'L', 'K', ' ',',','.'};
-        cadena = cadena.toUpperCase();
-        char[] encriptado = new char[cadena.length()];
-        for (int i = 0; i < cadena.length(); i++) {
-            char x = cadena.charAt(i);
-            for (int j = 0; j < alfabeto.length; j++) {
-                if (x == alfabeto[j]) {
-                    encriptado[i] = sustituir[j];
-                }
-            }
-        }
-        return String.valueOf(encriptado);
-    }
-
-    public String desencriptar(String cadena) { // HOLA   
-        char[] alfabeto = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ',',','.'};
-        char[] sustituir = {'Z', 'C', 'Q', 'V', 'A', 'J', 'G', 'Ñ', 'W', 'N', 'F', 'B', 'U', 'M', 'R', 'H', 'I', 'O', 'D', 'Y', 'X', 'T', 'P', 'E', 'S', 'L', 'K', ' ',',','.'};
-        cadena = cadena.toUpperCase();
-        char[] desencriptar = new char[cadena.length()];
-        for (int i = 0; i < cadena.length(); i++) {
-            char x = cadena.charAt(i);
-            for (int j = 0; j < sustituir.length; j++) {
-                if (x == sustituir[j]) {
-                    desencriptar[i] = alfabeto[j];
-                }
-            }
-        }
-        return String.valueOf(desencriptar);
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField2 = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaContenido = new javax.swing.JTextArea();
         cmdLimpiar = new javax.swing.JButton();
-        cmdEncriptar = new javax.swing.JButton();
-        cmdDesencriptar = new javax.swing.JButton();
+        cmdContador = new javax.swing.JButton();
+        cmdLetras = new javax.swing.JTextField();
+        cmdPalabras = new javax.swing.JTextField();
+        cmdPalabras1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jTextField2.setText("jTextField2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,34 +63,76 @@ public class Ventana6 extends javax.swing.JFrame {
             }
         });
 
-        cmdEncriptar.setText("ENCRIPTAR");
-        cmdEncriptar.addActionListener(new java.awt.event.ActionListener() {
+        cmdContador.setText("CONTADOR");
+        cmdContador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdEncriptarActionPerformed(evt);
+                cmdContadorActionPerformed(evt);
             }
         });
 
-        cmdDesencriptar.setText("DESENCRIPTAR");
-        cmdDesencriptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdDesencriptarActionPerformed(evt);
-            }
-        });
+        cmdLetras.setBackground(new java.awt.Color(0, 0, 0));
+        cmdLetras.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdLetras.setForeground(new java.awt.Color(204, 204, 0));
+        cmdLetras.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        cmdPalabras.setBackground(new java.awt.Color(0, 0, 0));
+        cmdPalabras.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdPalabras.setForeground(new java.awt.Color(204, 204, 0));
+        cmdPalabras.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        cmdPalabras1.setBackground(new java.awt.Color(0, 0, 0));
+        cmdPalabras1.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdPalabras1.setForeground(new java.awt.Color(204, 204, 0));
+        cmdPalabras1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel1.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1.setText("CANTIDAD LETRAS");
+
+        jLabel2.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("CANTIDAD PALABRAS");
+
+        jLabel3.setBackground(new java.awt.Color(255, 204, 0));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CANTIDAD NO LETRAS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cmdEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(cmdDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmdLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmdLetras, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmdPalabras1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cmdPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(cmdContador, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmdLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,34 +140,38 @@ public class Ventana6 extends javax.swing.JFrame {
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdEncriptar)
-                    .addComponent(cmdDesencriptar)
-                    .addComponent(cmdLimpiar))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdLetras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdPalabras1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdPalabras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdLimpiar)
+                    .addComponent(cmdContador))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdEncriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEncriptarActionPerformed
-        String cadena = txaContenido.getText();
-        txaContenido.setText(encriptar(cadena));
-    }//GEN-LAST:event_cmdEncriptarActionPerformed
+    private void cmdContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdContadorActionPerformed
 
-    private void cmdDesencriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDesencriptarActionPerformed
-        String cadena = txaContenido.getText();
-        txaContenido.setText(desencriptar(cadena));
-    }//GEN-LAST:event_cmdDesencriptarActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_cmdContadorActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
         txaContenido.setText("");
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -197,10 +220,16 @@ public class Ventana6 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cmdDesencriptar;
-    private javax.swing.JButton cmdEncriptar;
+    private javax.swing.JButton cmdContador;
+    private javax.swing.JTextField cmdLetras;
     private javax.swing.JButton cmdLimpiar;
+    private javax.swing.JTextField cmdPalabras;
+    private javax.swing.JTextField cmdPalabras1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextArea txaContenido;
     // End of variables declaration//GEN-END:variables
