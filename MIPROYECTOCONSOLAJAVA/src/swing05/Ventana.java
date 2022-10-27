@@ -1,14 +1,23 @@
 package swing05;
 
+import javax.swing.DefaultListModel;
+
 public class Ventana extends javax.swing.JFrame {
     
     static String lbltitulo;
+    
+    DefaultListModel dlm = new DefaultListModel();
 
-    public Ventana(String lbltitulo) {
+    public Ventana(String titulo) {
         initComponents();
-        lbltitulo = lbltitulo;
+        lbltitulo = titulo;
         lblTitulo.setText(lbltitulo);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        lstSalida.setModel(dlm);
+    }
+    
+    public DefaultListModel getModelo() {
+        return dlm;
     }
 
     @SuppressWarnings("unchecked")
@@ -17,7 +26,7 @@ public class Ventana extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lstSalida = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -28,7 +37,7 @@ public class Ventana extends javax.swing.JFrame {
         lblTitulo.setText("PARES EN UN JLIST");
         lblTitulo.setOpaque(true);
 
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lstSalida);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,8 +70,8 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JList<String> lstSalida;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,7 @@ package swing05;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 
 public class Ventana3 extends javax.swing.JFrame {
 
@@ -103,15 +104,31 @@ public class Ventana3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdoParesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoParesActionPerformed
-        new Ventana("PARES").setVisible(true);
+        Ventana v = new Ventana("PARES");
+        v.setVisible(true);
+        DefaultListModel dlm = v.getModelo();
+        dlm.clear();
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                dlm.addElement(i + "");
+            }
+        }
     }//GEN-LAST:event_rdoParesActionPerformed
 
     private void rdoImparesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoImparesActionPerformed
-        new Ventana("IMPARES").setVisible(true);
+        Ventana v = new Ventana("IMPARES");
+        v.setVisible(true);
+        DefaultListModel dlm = v.getModelo();
+        dlm.clear();
+        for (int i = 1; i <= 100; i++) {
+            if (i % 2 != 0) {
+                dlm.addElement(i + "");
+            }
+        }
     }//GEN-LAST:event_rdoImparesActionPerformed
 
     private void rdoPrimosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoPrimosActionPerformed
-       new Ventana("PRIMOS").setVisible(true);
+        new Ventana("PRIMOS").setVisible(true);
     }//GEN-LAST:event_rdoPrimosActionPerformed
 
     public static void main(String args[]) {
