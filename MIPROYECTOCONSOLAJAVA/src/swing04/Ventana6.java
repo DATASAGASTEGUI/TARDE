@@ -182,9 +182,11 @@ public class Ventana6 extends javax.swing.JFrame {
 
     private void cmdContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdContadorActionPerformed
         String cadena = txaContenido.getText();
+        
         int n = cantidadPalabras(cadena);
         String x = cantidadLetras(cadena);
         String[] numero = x.split(",");
+        
         txtPalabras.setText(n + "");
         txtLetras.setText(numero[0]);
         txtNoLetras.setText(numero[1]);
