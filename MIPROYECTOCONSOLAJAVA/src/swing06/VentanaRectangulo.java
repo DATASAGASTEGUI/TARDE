@@ -1,6 +1,9 @@
 package swing06;
 
+import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class VentanaRectangulo extends JFrame implements Calculo {
 
@@ -25,6 +28,14 @@ public class VentanaRectangulo extends JFrame implements Calculo {
 
     public VentanaRectangulo() {
         initComponents();
+        personalizar_JFrame();
+    }
+
+    public void personalizar_JFrame() {
+        this.setIconImage(Toolkit.getDefaultToolkit().createImage(VentanaRectangulo.class.getResource("mac.jpg")));
+        this.setLocationRelativeTo(null);
+        this.getContentPane().setBackground(Color.DARK_GRAY);
+        this.setTitle("GUI");
     }
 
     @SuppressWarnings("unchecked")
@@ -54,9 +65,11 @@ public class VentanaRectangulo extends JFrame implements Calculo {
         lblTitulo.setOpaque(true);
 
         lblLargo.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        lblLargo.setForeground(new java.awt.Color(255, 255, 255));
         lblLargo.setText("Largo");
 
         lblAncho.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        lblAncho.setForeground(new java.awt.Color(255, 255, 255));
         lblAncho.setText("Ancho");
 
         txtLargo.setBackground(new java.awt.Color(0, 0, 0));
@@ -70,6 +83,7 @@ public class VentanaRectangulo extends JFrame implements Calculo {
         txtAncho.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         lblArea.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        lblArea.setForeground(new java.awt.Color(255, 255, 255));
         lblArea.setText("Area");
 
         txtArea.setBackground(new java.awt.Color(0, 0, 0));
@@ -78,6 +92,9 @@ public class VentanaRectangulo extends JFrame implements Calculo {
         txtArea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtArea.setEnabled(false);
 
+        cmdPerimetro.setBackground(new java.awt.Color(0, 0, 0));
+        cmdPerimetro.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdPerimetro.setForeground(new java.awt.Color(255, 255, 255));
         cmdPerimetro.setText("PERIMETRO");
         cmdPerimetro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +103,7 @@ public class VentanaRectangulo extends JFrame implements Calculo {
         });
 
         lblPerimetro.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        lblPerimetro.setForeground(new java.awt.Color(255, 255, 255));
         lblPerimetro.setText("Perimetro");
 
         txtPerimetro.setBackground(new java.awt.Color(0, 0, 0));
@@ -94,6 +112,9 @@ public class VentanaRectangulo extends JFrame implements Calculo {
         txtPerimetro.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPerimetro.setEnabled(false);
 
+        cmdNuevo.setBackground(new java.awt.Color(0, 0, 0));
+        cmdNuevo.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdNuevo.setForeground(new java.awt.Color(255, 255, 255));
         cmdNuevo.setText("NUEVO");
         cmdNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +122,9 @@ public class VentanaRectangulo extends JFrame implements Calculo {
             }
         });
 
+        cmdArea.setBackground(new java.awt.Color(0, 0, 0));
+        cmdArea.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdArea.setForeground(new java.awt.Color(255, 255, 255));
         cmdArea.setText("AREA");
         cmdArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,7 +196,11 @@ public class VentanaRectangulo extends JFrame implements Calculo {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdPerimetroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPerimetroActionPerformed
-        txtPerimetro.setText(perimetro() + "");
+        try {
+            txtPerimetro.setText(perimetro() + "");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ENTRADA INCORRECTA", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_cmdPerimetroActionPerformed
 
     private void cmdNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdNuevoActionPerformed
@@ -183,7 +211,12 @@ public class VentanaRectangulo extends JFrame implements Calculo {
     }//GEN-LAST:event_cmdNuevoActionPerformed
 
     private void cmdAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAreaActionPerformed
-        txtArea.setText(area()+"");
+        try {
+            txtArea.setText(area() + "");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ENTRADA INCORRECTA", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_cmdAreaActionPerformed
 
     public static void main(String args[]) {
