@@ -104,10 +104,12 @@ public class Ventana3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rdoParesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoParesActionPerformed
-        Ventana v = new Ventana("PARES");
-        v.setVisible(true);
-        DefaultListModel dlm = v.getModelo();
+        Ventana v1 = new Ventana("PARES");
+        v1.setVisible(true);
+        
+        DefaultListModel dlm = v1.getModelo();
         dlm.clear();
+        
         for (int i = 1; i <= 100; i++) {
             if (i % 2 == 0) {
                 dlm.addElement(i + "");
@@ -116,10 +118,11 @@ public class Ventana3 extends javax.swing.JFrame {
     }//GEN-LAST:event_rdoParesActionPerformed
 
     private void rdoImparesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoImparesActionPerformed
-        Ventana v = new Ventana("IMPARES");
-        v.setVisible(true);
-        DefaultListModel dlm = v.getModelo();
+        Ventana v2 = new Ventana("IMPARES");
+        v2.setVisible(true);
+        DefaultListModel dlm = v2.getModelo();
         dlm.clear();
+        
         for (int i = 1; i <= 100; i++) {
             if (i % 2 != 0) {
                 dlm.addElement(i + "");

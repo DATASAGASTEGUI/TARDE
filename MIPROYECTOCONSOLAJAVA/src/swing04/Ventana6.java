@@ -17,7 +17,9 @@ public class Ventana6 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.DARK_GRAY);
         //this.setSize(500, 500);
+
         this.setTitle("GUI");
+        this.toFront();
     }
 
     public int cantidadPalabras(String cadena) {
@@ -182,11 +184,11 @@ public class Ventana6 extends javax.swing.JFrame {
 
     private void cmdContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdContadorActionPerformed
         String cadena = txaContenido.getText();
-        
+
         int n = cantidadPalabras(cadena);
         String x = cantidadLetras(cadena);
         String[] numero = x.split(",");
-        
+
         txtPalabras.setText(n + "");
         txtLetras.setText(numero[0]);
         txtNoLetras.setText(numero[1]);
