@@ -1,0 +1,87 @@
+TEORICO
+-------
+
+toUpperCase
+length
+size
+setText: JLabel, JTextField, JTextArea 
+
+Qué método se usa para recorrer una cadena
+charAt X
+setText
+getArea
+Ninguna de las anteriores 
+
+Evento para manejar la accion del clic sobre el botón.
+ActionPerformed
+
+Cuál es la colección que permite ordenar un arraylist
+ArrayList
+TreeSet X
+Vector
+Matriz
+
+De que paquete proviene la clase List
+java.util X
+java.swing
+javax.Util
+Ninguna de las anteriores
+
+De que paquete la clase Color
+java.awt X
+javax.swing
+javax.awt
+Ningunta de las anteriores
+
+De que paquete proviene la clase JFrame
+javax.swing X
+java.swing
+javax.Swing
+Ninguna de las anteriores
+
+Qué componente hace uso del agrupamiento
+JRadioButton X
+JCheckBox
+JField
+JTextArea
+
+Que nombre recibe le método que permite inicializar las variables de instancia
+Constructor X
+
+Que significa sobrecargar un método
+Usar un mismo nombre para distintos métodos. X
+
+PRACTICO
+--------
+1. Hacer un programa que resuelva las raices de una ecuación
+   cuadrática (segundo grado).
+2. Hacer un programa que resuelva las coordenadas cartesianas
+   a polar.
+3. Hallar la hipotenusa de un triangulo rectangulo.
+4. Hallar el factorial de un número.
+5. Poner en un JList los colores del arcoiris. Debe seleccionar
+   uno entonces el color de fondo  de la ventana cambia a ese color.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
