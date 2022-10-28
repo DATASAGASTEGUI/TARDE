@@ -19,7 +19,6 @@ public class Ventana3 extends javax.swing.JFrame {
         this.setIconImage(Toolkit.getDefaultToolkit().createImage(Ventana3.class.getResource("mac.jpg")));
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.DARK_GRAY);
-        //this.setSize(500, 500);
         this.setTitle("GUI");
     }
 
