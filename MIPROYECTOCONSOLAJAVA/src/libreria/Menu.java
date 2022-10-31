@@ -1,6 +1,6 @@
 package libreria;
 
-import libreria.*;
+import java.io.IOException;
 
 public class Menu {
 
@@ -18,7 +18,7 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
-                    Metodos.cls();
+                    cls();
                     opcion1();
                     Metodos.pause();
                     break;
@@ -64,6 +64,18 @@ public class Menu {
     public static void opcion4() {
         System.out.println("OPCION 4");
         System.out.println("--------");
+    }
+
+    public static void pause() {
+        try {
+            System.out.print("\nPresiona una tecla para continuar...");
+            System.in.read();
+        } catch (IOException e) {
+        }
+    }
+
+    public static void cls() {
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
 }

@@ -107,7 +107,7 @@ public class Metodos {
         System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
-    public double redondear2decimales(double x) {
+    public static double redondear2decimales(double x) {
         double y = (int) Math.ceil(x * 100.0) / 100.0;
         return y;
     }
