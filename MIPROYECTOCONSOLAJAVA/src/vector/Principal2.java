@@ -1,8 +1,7 @@
 package vector;
 
 
-import java.util.Scanner;
-import libreria.Metodos;
+import java.util.Scalibreria1port libreria.Metodos;
 
 public class Principal2 {
 

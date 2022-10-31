@@ -1,10 +1,12 @@
 package arraylist;
 
+import libreria.Metodos;
+import libreria1.Metodos;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import libreria.Metodos;
+import libreria.MisMetodos;
 
 public class Menu {
 
