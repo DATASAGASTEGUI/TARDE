@@ -47,12 +47,6 @@ public class Principal6 {
                         }
                         s1 = "";
                     }
-                    
-                    
-                    
-                    
-                    
-                    
                 } catch (Exception e) {
 
                 }
