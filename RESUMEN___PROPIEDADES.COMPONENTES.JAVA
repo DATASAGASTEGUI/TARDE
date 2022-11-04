@@ -17,6 +17,17 @@ public void personalizar_JFrame() {
    this.setSize(500, 500); // Cambia el ancho y alto del frame
 }
 
+T// TAMAÑO DURANTE EL DISEÑO DEL JFRAME (CODE)
+Botón derecho del mouse en el JFrame
+Properties>Code>Designer Size
+Modificamos y ponemos por ejemplo para el width:400 y para el Height:400
+
+// TAMAÑO DURANTE LA EJECUCIÓN DEL JFRAME (PROPERTIES)
+Botón derecho del mouse en el JFrame
+Properties
+preferredSize>Botón tres puntos>Default editor
+Ponemos por ejemplo para el width:440 y para el Height:440
+
 ==================
 ===   JLABEL   ===
 ==================
@@ -147,6 +158,17 @@ private class EventoButton implements ActionListener {
         }
 		
 }
+
+// PONER UN DISEÑO A NUESTROS JBUTTON
+
+Ir a la pestaña Design
+Botón derecho mouse sobre JButton
+Customize Code...
+custom creation
+Modificamos de esta manera: cmdGrabar   = (JButton) sb.createComponents1();
+                            cmdInsertar = (JButton) sb.createComponents1();
+                            cmdLimpiar  = (JButton) sb.createComponents1();
+
 
 =====================
 ===   JComboBox   ===
@@ -319,11 +341,28 @@ for (int i = 0; i < cboCiudad.getItemCount(); i++) {
 // METODOS QUE SE PONEN EN EL CONSTRUCTOR DE LA VENTANA
 
 public void personalizar_JTable() {
+	
+	    // PONER EL MODELO AL JTABLE
+		
         tblMostrar.setModel(dtm);
+		
+		// QUITAR O PONER EL GRID
 
         tblMostrar.setShowGrid(false); // Muestra el grid con true y lo oculta con false
         tblMostrar.setShowHorizontalLines(false); // Muestra la línea horizontal del grid con true y lo oculta con false
         tblMostrar.setShowVerticalLines(true); // Muestra la línea vertical del grid con true y lo oculta con false	
+		
+		// BORDER
+		
+		Border line = BorderFactory.createLineBorder(Color.BLUE, 3);
+        tblMostrar.setBorder(line);
+		
+		Border line = BorderFactory.createMatteBorder(0,2,2,2,Color.BLUE);
+        tblMostrar.setBorder(line);
+		
+		tblMostrar.setBorder(new LineBorder(new Color(255,0, 0))); // Pone un border al cuerpo del JTable
+		
+		// FIJAR UN ANCHO A LA COLUMNA
 		
 		tblMostrar.getColumnModel().getColumn(0).setMinWidth(40); // Fija un ancho a la columna 0
         tblMostrar.getColumnModel().getColumn(0).setMaxWidth(40); // Fija un achivo a la columna 0
@@ -338,8 +377,8 @@ public void personalizar_JTable() {
         tblMostrar.setBorder(BorderFactory.createTitledBorder(""));
         tblMostrar.getTableHeader().setReorderingAllowed(true);
         tblMostrar.setColumnSelectionInterval(1, 2);
-
-        tblMostrar.setSelectionForeground(Color.red); // Cambia de color de letra que se selecciona
+		
+	    tblMostrar.setSelectionForeground(Color.red); // Cambia de color de letra que se selecciona
         tblMostrar.setSelectionBackground(Color.lightGray); // Cambia de color el fonde de lo que se selecciona
 
         tblMostrar.setRowSelectionAllowed(true); // Permite la selección de fila
@@ -347,10 +386,30 @@ public void personalizar_JTable() {
 		
 		tblMostrar.getTableHeader().setOpaque(false); // Nose
 		
+		// PERSONALIZAR LA CABECERA
+		
 		tblMostrar.getTableHeader().setBackground(Color.BLACK); // Cambia el color de fondo de la cabecera
 		tblMostrar.getTableHeader().setForeground(Color.WHITE); // Cambia el color de letra de la cabecera
 		tblMostrar.getTableHeader().setFont(new java.awt.Font("Courier New", 0, 14)); // Cambia la fuente, estilo y tamaño de letra de la cabecera
+		
 		tblMostrar.getTableHeader().setBorder(new LineBorder(new Color(255, 162, 232))); // Cambia de color el border de la cabecera
+		
+		Border line = BorderFactory.createMatteBorder(2,2,2,2,Color.BLUE); //Arriba,Derecha,Abajo,Izquierda
+        tblContenido.getTableHeader().setBorder(line); // Cambia de color el border de la cabecera
+		
+		// PONER EL TEXTO DE UNA COLUMNA CENTER - LEFT - RIGHT
+		
+		DefaultTableCellRenderer centerRenderer_center = new DefaultTableCellRenderer();
+        centerRenderer_center.setHorizontalAlignment(JLabel.CENTER);
+        tblMostrar.getColumnModel().getColumn(0).setCellRenderer(centerRenderer_center); // Selecciono la columna 0 para justificar al centro el texto
+
+        DefaultTableCellRenderer centerRenderer_left = new DefaultTableCellRenderer();
+        centerRenderer_left.setHorizontalAlignment(JLabel.LEFT);
+        tblMostrar.getColumnModel().getColumn(1).setCellRenderer(centerRenderer_left); // Selecciono la columna 1 para justificar a la izquierda el texto
+
+        DefaultTableCellRenderer centerRenderer_right = new DefaultTableCellRenderer();
+        centerRenderer_right.setHorizontalAlignment(JLabel.RIGHT);
+        tblMostrar.getColumnModel().getColumn(2).setCellRenderer(centerRenderer_right); // Selecciono la columna 2 para justificar a la derecha el texto
 }
 
 // METODOS PARA LOS EVENTOS 

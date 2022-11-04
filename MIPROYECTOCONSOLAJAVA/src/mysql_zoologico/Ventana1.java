@@ -20,6 +20,7 @@ public class Ventana1 extends javax.swing.JFrame {
         initComponents();
         personalizar_JFrame();
         personalizar_JTable();
+        cargarDatosTable();
     }
 
     public void personalizar_JFrame() {
@@ -44,22 +45,33 @@ public class Ventana1 extends javax.swing.JFrame {
                 System.out.printf("%5s  %-26s  %-8s  %10s\n", "IDZOO", "DESCRIPCION", "CIUDAD", "SUPERFICIE");
                 System.out.printf("%5s  %-26s  %-8s  %10s\n", "-----", "-----------", "------", "----------");
 
+                String[] fblanco = {"", "", "", "", "", ""};
+                int i = 0;
                 while (rs.next()) {
                     String idZoo = rs.getString(1);
                     String descripcion = rs.getString(2);
                     String ciudad = rs.getString(3);
                     double superficie = rs.getDouble(4);
-                    System.out.printf("%5s  %-26s  %-8s  %10.2f\n", idZoo, descripcion, ciudad, superficie);
+                    double presupuesto = rs.getDouble(5);
+                    String pais = rs.getString(6);
+
+                    dtm.addRow(fblanco);
+
+                    dtm.setValueAt(idZoo, i, 0);
+                    dtm.setValueAt(descripcion, i, 1);
+                    dtm.setValueAt(ciudad, i, 2);
+                    dtm.setValueAt(superficie, i, 3);
+                    dtm.setValueAt(presupuesto, i, 4);
+                    dtm.setValueAt(pais, i, 5);
+
+                    i = i + 1;
                 }
                 conexion.close();
-                //System.out.println("OK: CONEXION");
-                JOptionPane.showMessageDialog(this, "OK CONEXION", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(this, "OK CONEXION", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                //System.out.println("ERROR: CONEXION");
                 JOptionPane.showMessageDialog(this, "ERROR: CONEXION", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
-            //System.out.println("ERROR: " + e);
             JOptionPane.showMessageDialog(this, "ERROR: " + e, "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -108,6 +120,9 @@ public class Ventana1 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblContenido);
 
+        cmdRefrescar.setBackground(new java.awt.Color(0, 0, 0));
+        cmdRefrescar.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        cmdRefrescar.setForeground(new java.awt.Color(255, 255, 255));
         cmdRefrescar.setText("REFRESCAR");
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
