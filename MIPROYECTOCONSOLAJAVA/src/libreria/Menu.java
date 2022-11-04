@@ -40,7 +40,6 @@ public class Menu {
                 case 0:
                     System.exit(0);
             }
-
         } while (true);
 
     }
