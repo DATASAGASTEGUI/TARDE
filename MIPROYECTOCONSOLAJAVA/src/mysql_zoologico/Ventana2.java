@@ -17,7 +17,6 @@ public class Ventana2 extends javax.swing.JFrame {
         for(String item: idzoo_al) {
             cboIdZoo.addItem(item);
         }
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +32,12 @@ public class Ventana2 extends javax.swing.JFrame {
         txtPais = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        cboIdZoo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboIdZooItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +77,17 @@ public class Ventana2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cboIdZooItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboIdZooItemStateChanged
+        String idZoo = (String)cboIdZoo.getSelectedItem();
+        Zoologico zoologico = crud.getObjetoZoologico(idZoo);
+        txtIdZoo.setText(zoologico.getIdZoo());
+        txtDescripcion.setText(zoologico.getDescripcion());
+        txtCiudad.setText(zoologico.getCiudad());
+        txtSuperficie.setText(zoologico.getSuperficie()+"");
+        txtPresupuesto.setText(zoologico.getPresupuesto()+"");
+        txtPais.setText(zoologico.getPais());
+    }//GEN-LAST:event_cboIdZooItemStateChanged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
