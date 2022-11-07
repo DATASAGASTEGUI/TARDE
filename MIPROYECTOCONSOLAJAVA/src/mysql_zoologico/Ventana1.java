@@ -6,8 +6,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class Ventana1 extends javax.swing.JFrame {
@@ -94,6 +96,21 @@ public class Ventana1 extends javax.swing.JFrame {
         tblContenido.getTableHeader().setFont(new java.awt.Font("Courier New", 0, 14)); // Cambia la fuente, estilo y tamaño de letra de la cabecera
         tblContenido.getTableHeader().setBorder(new LineBorder(new Color(255, 162, 232))); // Cambia de color el border de la cabecera
 
+        DefaultTableCellRenderer centerRenderer_center = new DefaultTableCellRenderer();
+        centerRenderer_center.setHorizontalAlignment(JLabel.CENTER);
+        tblContenido.getColumnModel().getColumn(0).setCellRenderer(centerRenderer_center); // Selecciono la columna 0 para justificar al centro el texto
+
+        DefaultTableCellRenderer centerRenderer_right = new DefaultTableCellRenderer();
+        centerRenderer_right.setHorizontalAlignment(JLabel.RIGHT);
+        tblContenido.getColumnModel().getColumn(3).setCellRenderer(centerRenderer_right); // Selecciono la columna 2 para justificar a la derecha el texto
+        tblContenido.getColumnModel().getColumn(4).setCellRenderer(centerRenderer_right);
+    }
+
+    public void limpiarTable() {
+        int nf = dtm.getRowCount();
+        for (int i = 0; i < nf; i++) {
+            dtm.removeRow(0);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -124,6 +141,11 @@ public class Ventana1 extends javax.swing.JFrame {
         cmdRefrescar.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         cmdRefrescar.setForeground(new java.awt.Color(255, 255, 255));
         cmdRefrescar.setText("REFRESCAR");
+        cmdRefrescar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdRefrescarActionPerformed(evt);
+            }
+        });
 
         lblTitulo.setBackground(new java.awt.Color(0, 0, 0));
         lblTitulo.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
@@ -156,6 +178,11 @@ public class Ventana1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRefrescarActionPerformed
+        limpiarTable();
+        cargarDatosTable();
+    }//GEN-LAST:event_cmdRefrescarActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -2,7 +2,7 @@ package libreria;
 
 import java.io.IOException;
 
-public class Menu {
+public class MiMenu {
 
     public static void main(String[] args) {
 
