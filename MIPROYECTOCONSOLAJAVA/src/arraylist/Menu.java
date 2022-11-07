@@ -1,7 +1,7 @@
 package arraylist;
 
 import libreria.Metodos;
-import libreria1.Metodos;
+import libreria.Metodos;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

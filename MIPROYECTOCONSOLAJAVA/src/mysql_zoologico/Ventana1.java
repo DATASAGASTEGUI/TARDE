@@ -124,6 +124,9 @@ public class Ventana1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+
+        tblContenido.setBackground(new java.awt.Color(0, 0, 0));
         tblContenido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
