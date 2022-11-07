@@ -13,11 +13,13 @@ public class Ventana4 extends javax.swing.JFrame {
     }
 
     public void llenarComboBox() {
-        //cboIdZoo.removeAllItems();
+        cboIdZoo.removeAllItems();
         List<String> idzoo_al = crud.getListaIdZoo();
         for (String item : idzoo_al) {
             cboIdZoo.addItem(item);
+            System.out.println(item);
         }
+        this.repaint();
     }
 
     @SuppressWarnings("unchecked")
@@ -113,6 +115,7 @@ public class Ventana4 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboIdZooItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboIdZooItemStateChanged
+        try {
         String idZoo = (String) cboIdZoo.getSelectedItem();
         Zoologico zoologico = crud.getObjetoZoologico(idZoo);
         txtIdZoo.setText(zoologico.getIdZoo());
@@ -121,6 +124,9 @@ public class Ventana4 extends javax.swing.JFrame {
         txtSuperficie.setText(zoologico.getSuperficie() + "");
         txtPresupuesto.setText(zoologico.getPresupuesto() + "");
         txtPais.setText(zoologico.getPais());
+        }catch(Exception e) {
+            
+        }
     }//GEN-LAST:event_cboIdZooItemStateChanged
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
@@ -133,6 +139,7 @@ public class Ventana4 extends javax.swing.JFrame {
                 txtSuperficie.setText("");
                 txtPresupuesto.setText("");
                 txtPais.setText("");
+                cboIdZoo.setSelectedIndex(0);
                 llenarComboBox();
                 JOptionPane.showMessageDialog(this, "OK: ELIMINAR", "INFORMACION", JOptionPane.INFORMATION_MESSAGE);
             } else {
