@@ -52,29 +52,72 @@ public class OperacionesCrud {
                 double superficie = rs.getDouble(4);
                 double presupuesto = rs.getDouble(5);
                 String pais = rs.getString(6);
-                
-                zoologico = new Zoologico(idZoo1,descripcion,ciudad,superficie,presupuesto,pais);
+
+                zoologico = new Zoologico(idZoo1, descripcion, ciudad, superficie, presupuesto, pais);
             }
         } catch (Exception e) {
 
         }
         return zoologico;
     }
-    
+
     public boolean insertarObjetoZoologico(Zoologico zoologico) {
         boolean bandera = true;
         String query = "INSERT INTO Zoologico VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement ps = conexion.prepareStatement(query);
-            ps.setString(1,zoologico.getIdZoo());
-            ps.setString(2,zoologico.getDescripcion());
-            ps.setString(3,zoologico.getCiudad());
-            ps.setDouble(4,zoologico.getSuperficie());
-            ps.setDouble(5,zoologico.getPresupuesto());
+            ps.setString(1, zoologico.getIdZoo());
+            ps.setString(2, zoologico.getDescripcion());
+            ps.setString(3, zoologico.getCiudad());
+            ps.setDouble(4, zoologico.getSuperficie());
+            ps.setDouble(5, zoologico.getPresupuesto());
             ps.setString(6, zoologico.getPais());
             ps.executeUpdate();
-        }catch(Exception e) {
+        } catch (Exception e) {
             bandera = false;
+        }
+        return bandera;
+    }
+
+    public boolean eliminarZoologico(String idZooEliminar) {
+        boolean bandera = true;
+        String query1 = "DELETE FROM Animal WHERE idZoo = ?";
+        String query2 = "DELETE FROM Zoologico WHERE idZoo = ?";
+        PreparedStatement ps = null;
+        try {
+            ps = conexion.prepareStatement(query1); //Hijos
+            ps.setString(1, idZooEliminar);
+            ps.executeUpdate();
+            
+            ps = conexion.prepareStatement(query2); //Padre
+            ps.setString(1, idZooEliminar);
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+            bandera = false;
+        }
+        return bandera;
+    }
+    
+    public boolean actualizarZoologico(Zoologico zNuevo) {
+        boolean bandera = true;
+        String query = "UPDATE Zoologico SET descripcion = ?,\n" +
+"                     ciudad = ?,\n" +
+"                     superficie = ?,\n" +
+"                     presupuesto = ?,\n" +
+"                     pais = ? \n" +
+"WHERE idZoo = ?";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(query);
+            ps.setString(1, zNuevo.getDescripcion());
+            ps.setString(2, zNuevo.getCiudad());
+            ps.setDouble(3, zNuevo.getSuperficie());
+            ps.setDouble(4, zNuevo.getPresupuesto());
+            ps.setString(5, zNuevo.getPais());
+            ps.setString(6, zNuevo.getIdZoo());
+            ps.executeUpdate();
+        }catch(Exception e) {
+           bandera = false; 
         }
         return bandera;
     }
