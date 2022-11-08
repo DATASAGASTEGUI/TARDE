@@ -12,9 +12,13 @@ public class Menu {
             cls();
             System.out.println("MENU");
             System.out.println("----");
-            System.out.println("1. LOS ANIMALES NACIDOS EN EL AÑO 2016");
+            System.out.println("1. LOS ANIMALES NACIDOS EN AÑO CUALQUIERA");
+            System.out.println("2. LOS ANIMALES NACIDOS EN UN MES CUALQUIERA");
             
-            System.out.println("2. Mostrar la ciudad con el mayor monto acumulado");
+            System.out.println("3. LOS ANIMALES NACIDOS EN UN MES O AÑO CUALQUIERA");
+            
+            System.out.println("4. LOS ANIMALES NACIDOS EN UN MES O AÑO O NOAÑO");
+            
             System.out.println("3. Mostrar todas las ciuadades distintas");
             System.out.println("4. Mostrar la zona con la mayor venta");
             System.out.println("0. Salir");
@@ -60,11 +64,13 @@ public class Menu {
     public static void opcion2() {
         System.out.println("OPCION 2");
         System.out.println("--------");
+        crud.animalesNacidosMes();
     }
 
     public static void opcion3() {
         System.out.println("OPCION 3");
         System.out.println("--------");
+        crud.animalesNacidosAnio_Mes(Metodos.validarEntradaNombre("Ingrese mes-anio? "));
     }
 
     public static void opcion4() {
