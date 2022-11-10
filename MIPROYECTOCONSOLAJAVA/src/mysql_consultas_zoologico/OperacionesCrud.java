@@ -281,10 +281,20 @@ public class OperacionesCrud {
 
     public void insertar(Object[] z) {
 
-        String query = "INSERT INTO Zoologico VALUES(?,?,?,?,?,?)";
+        String query = "INSERT INTO Zoologico(idZoo,descripcion,ciudad,superficie,presupuesto,pais) VALUES(?,?,?,?,?,?)";
         try {
-            
+            PreparedStatement ps = conexion.prepareStatement(query);
 
+            ps.setString(1, (String) z[0]);
+            ps.setString(2, (String) z[1]);
+            ps.setString(3, (String) z[2]);
+            ps.setDouble(4, (double) z[3]);
+            ps.setDouble(5, (double) z[4]);
+            ps.setString(6, (String) z[5]);
+
+            ps.executeUpdate();
+
+            System.out.println("OK: QUERY INSERTAR");
         } catch (Exception e) {
             System.out.println("ERROR: QUERY INSERTAR");
         }

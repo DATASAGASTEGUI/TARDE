@@ -142,14 +142,13 @@ public class Menu {
         System.out.println("OPCION 9");
         System.out.println("--------");
 
-        Object[] z08 = {"Z08", "Casma", "Trujillo", 40, 200000, "España"};
-        Object[] z09 = {"Z09", "Huarmey", "Jaen", 30, 100000, "España"};
-        Object[] z10 = {"Z10", "Tumbes", "Cadiz", 20, 300000, "España"};
+        Object[] z08 = {"Z08", "Casma", "Trujillo", 40.0, 200000.0, "España"};
+        Object[] z09 = {"Z09", "Huarmey", "Jaen", 30.0, 100000.0, "España"};
+        Object[] z10 = {"Z10", "Tumbes", "Cadiz", 20.0, 300000.0, "España"};
         
         crud.insertar(z08);
         crud.insertar(z09);
         crud.insertar(z10);
-
     }
 
     public static void pause() {
