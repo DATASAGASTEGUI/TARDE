@@ -68,7 +68,40 @@ public class Metodos {
 
         } while (!correcto);
         return n;
+    }
 
+    public static String validarEntradaIdZoo(String mensaje) {
+        Scanner sc = new Scanner(System.in);
+        String patron = "Z[0-9]{2}";
+        boolean correcto;
+        String n;
+        do {
+            System.out.print(mensaje);
+            n = sc.next();
+            correcto = n.matches(patron);
+            if (!correcto) {
+                System.out.println("Error: Entrada Incorrecta");
+            }
+
+        } while (!correcto);
+        return n;
+    }
+
+    public static String validarEntradaOracion(String mensaje) {
+        Scanner sc = new Scanner(System.in);
+        String patron = "[a-zA-ZñÑáéíóú\\s]+";
+        boolean correcto;
+        String n;
+        do {
+            System.out.print(mensaje);
+            n = sc.nextLine();
+            correcto = n.matches(patron);
+            if (!correcto) {
+                System.out.println("Error: Entrada Incorrecta");
+            }
+
+        } while (!correcto);
+        return n;
     }
 
     public static int[][] copiaMatriz(int[][] enteros) {
