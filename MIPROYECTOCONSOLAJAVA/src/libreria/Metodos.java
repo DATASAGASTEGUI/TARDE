@@ -70,6 +70,23 @@ public class Metodos {
         return n;
     }
 
+    public static String validarEntradaCifProveedor(String mensaje) {
+        Scanner sc = new Scanner(System.in);
+        String patron = "[AB][0-9]{8}";
+        boolean correcto;
+        String n;
+        do {
+            System.out.print(mensaje);
+            n = sc.next();
+            correcto = n.matches(patron);
+            if (!correcto) {
+                System.out.println("Error: Entrada Incorrecta");
+            }
+
+        } while (!correcto);
+        return n;
+    }
+
     public static String validarEntradaIdZoo(String mensaje) {
         Scanner sc = new Scanner(System.in);
         String patron = "Z[0-9]{2}";
